@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christai Jaime Avila — Comunicaciones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #FAF9F7;
+    --paper-alt: #F1ECF9;
+    --ink: #201A29;
+    --ink-soft: #675A78;
+    --pen: #6D28D9;
+    --pen-soft: #E3D6FA;
+    --teal: #0D9488;
+    --rule: #E4DEEF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:92px;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+  }
+  ::selection{ background:var(--pen-soft); color:var(--ink); }
+  a{ color:inherit; }
+  :focus-visible{ outline:2px solid var(--pen); outline-offset:2px; }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 28px; }
+
+  /* ---------- masthead ---------- */
+  header.masthead{
+    border-bottom:3px solid var(--ink);
+    padding:20px 0 14px;
+    position:sticky;
+    top:0;
+    z-index:500;
+    background:var(--paper);
+    transition:box-shadow .2s ease, padding .2s ease;
+  }
+  header.masthead.scrolled{
+    padding:12px 0 10px;
+    box-shadow:0 4px 14px rgba(32,28,22,0.10);
+  }
+  .masthead-row{
+    display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;
+  }
+  .masthead-title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .masthead-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+  nav.masthead-nav{
+    margin-top:10px;
+    display:flex; gap:22px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+  nav.masthead-nav a{ text-decoration:none; border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s ease, border-color .15s ease; white-space:nowrap; }
+  nav.masthead-nav a:hover{ border-color:var(--pen); color:var(--pen); }
+  nav.masthead-nav a.active{ color:var(--pen); border-color:var(--pen); }
+  @media (max-width:640px){
+    nav.masthead-nav{ flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding-bottom:2px; }
+    nav.masthead-nav::-webkit-scrollbar{ display:none; }
+  }
+
+  /* ---------- hero ---------- */
+  section.hero{
+    padding:64px 0 56px;
+    border-bottom:1px solid var(--rule);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr 420px;
+    gap:52px;
+    align-items:start;
+  }
+  .hero-photo{
+    aspect-ratio:4/5;
+    border:10px solid var(--paper);
+    box-shadow:0 0 0 1.5px var(--ink);
+    transform:rotate(-2deg);
+    margin-top:6px;
+    background:var(--paper-alt);
+  }
+  .hero-photo img{ object-fit:cover; object-position:center 20%; }
+  .hero-photo .img-fallback{ border:none; }
+  @media (max-width:760px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-photo{ width:320px; margin:0 auto 8px; order:-1; }
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--pen);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  h1.hero-name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(40px, 7vw, 68px);
+    line-height:1.02;
+    letter-spacing:-0.01em;
+    position:relative;
+    display:inline-block;
+  }
+  .underline-mark{
+    display:block;
+    width:100%;
+    height:14px;
+    margin-top:-10px;
+  }
+  h2.hero-role{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(19px, 2.6vw, 26px);
+    color:var(--ink-soft);
+    margin-top:14px;
+    max-width:560px;
+  }
+  .hero-actions{
+    margin-top:34px;
+    display:flex; gap:16px; flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    text-decoration:none;
+    padding:12px 22px;
+    border:1.5px solid var(--ink);
+    display:inline-block;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .btn:hover{ transform:translateY(-2px); box-shadow:0 4px 12px rgba(32,28,22,0.16); }
+  .btn-primary{ background:var(--ink); color:var(--paper); }
+  .btn-primary:hover{ background:var(--pen); border-color:var(--pen); }
+  .btn-ghost:hover{ border-color:var(--pen); color:var(--pen); }
+
+  /* ---------- section headers ---------- */
+  .section-head{
+    display:flex; align-items:center; gap:14px;
+    margin-bottom:34px;
+  }
+  .section-head .stamp{
+    font-family:'Caveat', cursive;
+    color:var(--pen);
+    font-size:26px;
+    transform:rotate(-4deg);
+    white-space:nowrap;
+  }
+  .section-head h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:30px;
+  }
+  .section-head::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--rule);
+  }
+  section{ padding:58px 0; border-bottom:1px solid var(--rule); }
+  section:last-of-type{ border-bottom:none; }
+
+  /* ---------- about ---------- */
+  .about-body p{ max-width:640px; font-size:16.5px; color:var(--ink-soft); margin-bottom:16px; }
+  .about-body strong{ color:var(--ink); font-weight:600; }
+
+  /* ---------- experience timeline ---------- */
+  .tl-item{
+    display:grid;
+    grid-template-columns:130px 1fr;
+    gap:24px;
+    padding:20px 0;
+    border-top:1px solid var(--rule);
+  }
+  .tl-item:first-child{ border-top:none; }
+  .tl-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--pen);
+    padding-top:3px;
+  }
+  .tl-role{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:19px;
+  }
+  .tl-org{ color:var(--ink-soft); font-size:14.5px; margin-top:2px; }
+
+  /* ---------- case studies (accordion) ---------- */
+  .cases-list{ border-top:1px solid var(--rule); }
+  .case-item{ border-bottom:1px solid var(--rule); scroll-margin-top:100px; }
+  .case-trigger{
+    width:100%;
+    background:none;
+    border:none;
+    text-align:left;
+    font-family:inherit;
+    color:inherit;
+    cursor:pointer;
+    padding:24px 12px;
+    margin:0 -12px;
+    display:grid;
+    grid-template-columns:34px 1fr auto;
+    align-items:center;
+    gap:20px;
+    border-radius:6px;
+    transition:background .15s ease;
+  }
+  .case-trigger:hover{ background:var(--paper-alt); }
+  .case-trigger.has-thumb{ grid-template-columns:48px 34px 1fr auto; }
+  .case-emoji{
+    width:48px; height:48px;
+    flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px;
+    background:var(--paper-alt);
+    border:1px solid var(--rule);
+    border-radius:50%;
+    transform:rotate(-3deg);
+    transition:transform .15s ease;
+  }
+  .case-trigger:hover .case-emoji{ transform:rotate(3deg) scale(1.06); }
+  .case-trigger:hover .case-title{ color:var(--pen); }
+  .case-mark{
+    width:34px; height:34px;
+    border:1.5px solid var(--pen);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--pen);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    transform:rotate(-8deg);
+    flex-shrink:0;
+  }
+  .case-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--teal);
+    margin-bottom:6px;
+  }
+  .case-title{
+    font-family:'Fraunces', serif;
+    font-size:20px;
+    font-weight:600;
+    transition:color .15s ease;
+  }
+  .case-sub{ font-size:14px; color:var(--ink-soft); margin-top:4px; max-width:560px; }
+  .case-toggle{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:22px;
+    color:var(--ink-soft);
+    transition:transform .25s ease;
+    line-height:1;
+  }
+  .case-item.open .case-toggle{ transform:rotate(45deg); color:var(--pen); }
+  .case-panel{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+  }
+  .case-item.open .case-panel{ max-height:2400px; }
+  .case-panel-inner{ padding:0 4px 34px 54px; }
+  .case-block{ margin-bottom:20px; }
+  .case-block h5{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--pen);
+    margin-bottom:8px;
+  }
+  .case-block p, .case-block li{ font-size:15px; color:var(--ink-soft); }
+  .case-block ul{ padding-left:18px; }
+  .case-block li{ margin-bottom:4px; }
+  .stat-row{ display:flex; flex-wrap:wrap; gap:10px 28px; margin-top:4px; }
+  .stat{ }
+  .stat .num{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:24px;
+    color:var(--ink);
+    display:block;
+  }
+  .stat .lbl{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+  }
+  .press-link{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--teal);
+    text-decoration:underline;
+    text-underline-offset:3px;
+    margin-right:16px;
+  }
+  .case-images{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:14px; margin-top:6px; }
+  .video-grid{ grid-template-columns:repeat(auto-fit, minmax(120px,140px)); justify-content:start; }
+  .video-slot{ aspect-ratio:9/16 !important; max-width:140px; display:block; text-decoration:none; }
+  .play-badge{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    pointer-events:none;
+  }
+  .play-badge::before{
+    content:'';
+    width:0; height:0;
+    margin-left:3px;
+    border-style:solid;
+    border-width:9px 0 9px 15px;
+    border-color:transparent transparent transparent #fff;
+    filter:drop-shadow(0 1px 3px rgba(0,0,0,0.45));
+  }
+
+  /* ---------- certificates ---------- */
+  .cert-group{ margin-bottom:26px; }
+  .cert-group h5{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--pen);
+    margin-bottom:10px;
+  }
+  .cert-list{ columns:2 240px; column-gap:32px; list-style:none; }
+  .cert-list li{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    margin-bottom:7px;
+    break-inside:avoid;
+    padding-left:14px;
+    position:relative;
+  }
+  .cert-list li::before{
+    content:"–";
+    position:absolute; left:0; color:var(--teal);
+  }
+  .cert-list li strong{ color:var(--ink); font-weight:600; }
+
+  /* ---------- copy samples ---------- */
+  .copies-list{ border-top:1px solid var(--rule); }
+  .copy-text{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:16px;
+    line-height:1.55;
+    color:var(--ink);
+  }
+
+  /* ---------- education ---------- */
+  .edu-item{ padding:18px 0; border-top:1px solid var(--rule); }
+  .edu-item:first-child{ border-top:none; }
+  .edu-item h4{ font-family:'Fraunces', serif; font-size:18px; font-weight:600; }
+  .edu-item p{ color:var(--ink-soft); font-size:14.5px; margin-top:3px; }
+
+  /* ---------- skills ---------- */
+  .skills-list{ display:flex; flex-wrap:wrap; gap:10px; }
+  .skill-chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    padding:8px 14px;
+    border:1px solid var(--ink);
+    text-transform:lowercase;
+  }
+  .skill-chip.marked{
+    border-color:var(--pen);
+    color:var(--pen);
+  }
+
+  /* ---------- contact ---------- */
+  .contact-box{
+    background:var(--ink);
+    color:var(--paper);
+    padding:48px 40px;
+    text-align:center;
+  }
+  .contact-box h3{
+    font-family:'Fraunces', serif;
+    font-size:clamp(26px,4vw,36px);
+    font-weight:600;
+    margin-bottom:12px;
+  }
+  .contact-box p{ color:#C9C3B5; max-width:480px; margin:0 auto 26px; }
+  .contact-links{ display:flex; gap:18px; justify-content:center; flex-wrap:wrap; }
+  .contact-links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    text-decoration:none;
+    border-bottom:1px solid var(--pen-soft);
+    padding-bottom:2px;
+  }
+  .contact-links a:hover{ color:var(--pen-soft); }
+
+  footer{
+    padding:24px 0 40px;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width:640px){
+    .cases-grid{ grid-template-columns:1fr; }
+    .tl-item{ grid-template-columns:1fr; gap:4px; }
+    .contact-box{ padding:36px 22px; }
+  }
+
+  .img-slot{
+    position:relative;
+    aspect-ratio:3/2;
+    overflow:hidden;
+    background:var(--paper-alt);
+    border:1.5px solid var(--rule);
+  }
+  .img-slot img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .img-slot:not(.video-slot) img{ cursor:zoom-in; }
+
+  /* ---------- lightbox ---------- */
+  #lightbox{
+    position:fixed; inset:0;
+    background:rgba(20,15,10,0.92);
+    display:none;
+    align-items:center; justify-content:center;
+    z-index:2000;
+    padding:32px;
+    cursor:zoom-out;
+  }
+  #lightbox.open{ display:flex; }
+  #lightbox img{
+    max-width:100%; max-height:100%;
+    object-fit:contain;
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    cursor:default;
+  }
+  #lightbox-close{
+    position:fixed;
+    top:20px; right:24px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    color:#fff;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.35);
+    width:38px; height:38px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+  }
+  @media (max-width:640px){
+    #lightbox{ padding:16px; }
+  }
+  .img-slot .img-fallback{
+    display:flex;
+    position:absolute; inset:0;
+    flex-direction:column; align-items:center; justify-content:center;
+    gap:6px;
+    text-align:center;
+    padding:12px;
+    border:1.5px dashed var(--rule);
+  }
+  .img-slot .img-fallback svg{ width:26px; height:26px; opacity:0.5; }
+  .img-slot .img-fallback span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ---------- scroll reveal ---------- */
+  .fade-section{ opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease; }
+  .fade-section.visible{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){
+    .fade-section{ opacity:1; transform:none; transition:none; }
+  }
+
+  /* ---------- back to top ---------- */
+  #backToTop{
+    position:fixed;
+    bottom:22px; left:22px;
+    width:44px; height:44px;
+    border:1.5px solid var(--ink);
+    background:var(--paper);
+    color:var(--ink);
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    font-size:16px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.12);
+    opacity:0; visibility:hidden; transform:translateY(8px);
+    transition:opacity .2s ease, transform .2s ease, visibility .2s ease;
+    z-index:900;
+  }
+  #backToTop.show{ opacity:1; visibility:visible; transform:none; }
+  #backToTop:hover{ background:var(--ink); color:var(--paper); }
+  @media (max-width:640px){
+    #backToTop{ bottom:78px; left:14px; width:40px; height:40px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="masthead-row">
+      <span class="masthead-title">Portafolio profesional</span>
+      <span class="masthead-date">Lima - Perú — Ed. 2026</span>
+    </div>
+    <nav class="masthead-nav">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#casos">Casos</a>
+      <a href="#copies">Copies</a>
+      <a href="#videos">TikTok & Reels</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#educacion">Educación</a>
+      <a href="#certificados">Certificados</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-content">
+      <div class="eyebrow">Comunicadora</div>
+      <h1 class="hero-name">
+        Christai Jaime Avila
+        <svg class="underline-mark" viewBox="0 0 460 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 12 C 80 3, 160 17, 240 8 S 400 3, 458 10" stroke="#6D28D9" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </h1>
+      <h2 class="hero-role">Historias que conectan, inspiran y generan impacto real.</h2>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contacto">Contactar</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/christai-jaime-avila/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="mailto:chrisjussy@gmail.com">chrisjussy@gmail.com</a>
+      </div>
+    </div>
+    <div class="hero-photo img-slot">
+      <img src="images/linkedin_.jpg" alt="Christai Jaime Avila" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="stamp">Resumen</span>
+      <h3>Sobre mí</h3>
+    </div>
+    <div class="about-body">
+      <p>Creo en las historias que conectan, en las ideas que mueven y en la comunicación que logra que una organización se sienta más humana.</p>
+      <p>Trabajo entre la estrategia, el contenido, el copy, el diseño y la <strong>IA generativa</strong>, convirtiendo ideas en mensajes que conectan con las personas.</p>
+      <p>He trabajado en proyectos de educación, innovación y emprendimiento, siempre buscando algo más que comunicar: crear ideas que generen impacto.</p>
+    </div>
+  </div>
+</section>
+
+<section id="casos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="stamp">casos destacados</span>
+      <h3>Portafolio</h3>
+    </div>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); margin-bottom:22px;">Haz clic en un caso para ver el detalle completo ↓</p>
+    <div class="cases-list">
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🎤</span>
+          <span class="case-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:14px;height:14px;"><polyline points="4 12 9 17 20 6"/></svg></span>
+          <span>
+            <div class="case-tag">Facilitación · abr–jun 2025</div>
+            <div class="case-title">Facilitadora de Comunicación Persuasiva y Storytelling</div>
+            <div class="case-sub">Curso extracurricular, Lima — enseñando lo que aplico todos los días en campaña.</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <h5>Contexto</h5>
+              <p>Facilitación de un curso extracurricular de Comunicación Persuasiva y Storytelling, llevando a estudiantes por los mismos principios que uso en campañas reales: estructura narrativa, tono según audiencia y cómo convertir una idea en un mensaje que se queda.</p>
+            </div>
+            <div class="case-block">
+              <h5>Imágenes</h5>
+              <div class="case-images">
+                <div class="img-slot"><img src="images/en-clase-dinamica-grupal.jpg" alt="En clase / dinámica grupal" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div>
+                <div class="img-slot"><img src="images/material-del-curso.jpg" alt="Material del curso" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🚀</span>
+          <span class="case-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:14px;height:14px;"><polyline points="4 12 9 17 20 6"/></svg></span>
+          <span>
+            <div class="case-tag">Innovación · liderazgo</div>
+            <div class="case-title">NASA International Space Apps Challenge</div>
+            <div class="case-sub">De apoyo en comunicaciones (Huancayo, 2024) a Local Lead de la sede Ica (2025).</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <h5>Contexto</h5>
+              <p>Participación en dos ediciones consecutivas del NASA International Space Apps Challenge, organizado en Perú por Universidad Continental junto a Continental Florida University. Progresión de apoyo en comunicaciones (2024, sede Huancayo) a liderazgo completo de sede (2025, Local Lead Ica) — equipo, logística y comunicaciones de punta a punta.</p>
+            </div>
+            <div class="case-block">
+              <h5>Resultados 2025 (nacional)</h5>
+              <div class="stat-row">
+                <div class="stat"><span class="num">6</span><span class="lbl">sedes</span></div>
+                <div class="stat"><span class="num">+300</span><span class="lbl">proyectos</span></div>
+                <div class="stat"><span class="num">+14,000</span><span class="lbl">inscritos</span></div>
+                <div class="stat"><span class="num">19</span><span class="lbl">nominados globales</span></div>
+              </div>
+              <p style="margin-top:12px;">Ganador global de la edición 2025 desde la sede de Arequipa. La edición 2024 sumó 3 sedes y 598 participantes.</p>
+            </div>
+            <div class="case-block">
+              <h5>Cobertura de prensa</h5>
+              <a class="press-link" href="https://elcomercio.pe/lima/sucesos/nasa-space-apps-challenge-2025-se-realizara-en-seis-ciudades-del-peru-ultimas-noticia" target="_blank" rel="noopener">El Comercio →</a>
+              <a class="press-link" href="https://rpp.pe/ciencia/espacio/nasa-space-apps-challenge-lima-2024-tendra-nuevas-sedes-en-junin-y-cusco-noticia-1562651" target="_blank" rel="noopener">RPP →</a>
+            </div>
+            <div class="case-block">
+              <h5>Imágenes</h5>
+              <div class="case-images">
+                <div class="img-slot"><img src="images/sede-ica-evento-2025.jpg" alt="Sede Ica — evento 2025" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div>
+                <div class="img-slot"><img src="images/deck-de-campana.jpg" alt="Deck de campaña" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">💡</span>
+          <span class="case-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:14px;height:14px;"><polyline points="4 12 9 17 20 6"/></svg></span>
+          <span>
+            <div class="case-tag">Campañas 360°</div>
+            <div class="case-title">Programas de emprendimiento e innovación</div>
+            <div class="case-sub">Santander X Explorer, Espinar Emprende, Juntas, Tarpuy, Peak Up, Innova y Scale.</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <h5>Contexto</h5>
+              <p>Diseño e implementación de planes de comunicación para los distintos programas de emprendimiento e innovación de Wichay Continental — Santander X Explorer, Espinar Emprende, Juntas, Tarpuy, Peak Up, Innova y Scale — coordinando campañas multicanal (redes sociales, mailing, presencial) alineadas a objetivos de registro, participación y fidelización, con métricas medibles por etapa.</p>
+            </div>
+            <div class="case-block">
+              <h5>Resultados</h5>
+              <div class="stat-row">
+                <div class="stat"><span class="num">+130%</span><span class="lbl">inscripciones en convocatorias sucesivas</span></div>
+                <div class="stat"><span class="num">1,000 → 3,191</span><span class="lbl">seguidores en redes institucionales</span></div>
+              </div>
+            </div>
+            <div class="case-block">
+              <h5>Mi rol</h5>
+              <ul>
+                <li>Estrategia y concepto creativo de campaña, de punta a punta</li>
+                <li>Implementación de emBlue para automatización y segmentación de boletines, mejorando tasas de apertura</li>
+                <li>Uso de herramientas de IA generativa para acelerar la producción de contenido y proponer nuevos formatos</li>
+                <li>Copy de landing pages, piezas de difusión y presentaciones institucionales</li>
+              </ul>
+            </div>
+            <div class="case-block">
+              <h5>Imágenes</h5>
+              <div class="case-images">
+                <div class="img-slot"><img src="images/mockup-del-feed.jpg" alt="Mockup del feed" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div>
+                <div class="img-slot"><img src="images/calendario-de-campana.jpg" alt="Calendario de campaña" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🤝</span>
+          <span class="case-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:14px;height:14px;"><polyline points="4 12 9 17 20 6"/></svg></span>
+          <span>
+            <div class="case-tag">Comunicación interna</div>
+            <div class="case-title">Great Place to Work</div>
+            <div class="case-sub">Comunicación integral de los ciclos de clima laboral en Universidad Continental (2018–2021).</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <h5>Contexto</h5>
+              <p>Gestión de la comunicación para la evaluación anual de clima laboral GPTW, aplicada al personal administrativo de Universidad Continental en las ediciones 2018, 2019, 2020 y 2021. En 2020, ante la pandemia, GPTW reemplazó la evaluación tradicional por la Encuesta Pulso —una versión breve bajo el concepto "Tu voz siempre cuenta"— para tomarle el pulso al ambiente laboral en plena crisis.</p>
+            </div>
+            <div class="case-block">
+              <h5>Mi rol — ciclo completo</h5>
+              <ul>
+                <li><strong style="color:var(--ink)">Antes:</strong> piezas gráficas de campaña y copy de correos de invitación</li>
+                <li><strong style="color:var(--ink)">Durante:</strong> llamadas de seguimiento y coordinación con jefaturas por área</li>
+                <li><strong style="color:var(--ink)">Después:</strong> comunicados de resultados, área por área</li>
+              </ul>
+            </div>
+            <div class="case-block">
+              <h5>Imágenes</h5>
+              <div class="case-images">
+                <div class="img-slot"><img src="images/piezas-de-campana-interna.jpg" alt="Piezas de campaña interna" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">⚖️</span>
+          <span class="case-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:14px;height:14px;"><polyline points="4 12 9 17 20 6"/></svg></span>
+          <span>
+            <div class="case-tag">Comunidad internacional</div>
+            <div class="case-title">Hay Derecho, Madrid</div>
+            <div class="case-sub">Community Manager multicanal: cinco redes, web institucional y email marketing.</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <h5>Contexto</h5>
+              <p>Gestión de redes sociales para Hay Derecho, organización española dedicada a la defensa del Estado de derecho y el buen gobierno. El reto: comunicar temas legales e institucionales complejos a una audiencia general, adaptando un mismo contenido a la lógica de cada canal en lugar de replicar el mismo copy en todos.</p>
+            </div>
+            <div class="case-block">
+              <h5>Rol por canal</h5>
+              <ul>
+                <li><strong style="color:var(--ink)">X (Twitter):</strong> tweets e hilos de investigación y posicionamiento legal</li>
+                <li><strong style="color:var(--ink)">Facebook:</strong> campañas institucionales y de movilización ciudadana</li>
+                <li><strong style="color:var(--ink)">LinkedIn:</strong> contenido institucional con infografías propias</li>
+                <li><strong style="color:var(--ink)">Instagram:</strong> posts, stories y reels</li>
+                <li><strong style="color:var(--ink)">Spotify:</strong> contenido para el podcast de la fundación</li>
+                <li><strong style="color:var(--ink)">WordPress:</strong> gestión completa del sitio institucional</li>
+                <li><strong style="color:var(--ink)">Mailchimp:</strong> boletines y formularios de inscripción segmentados</li>
+              </ul>
+            </div>
+            <div class="case-block">
+              <h5>Imágenes</h5>
+              <div class="case-images">
+                <div class="img-slot"><img src="images/post-instagram-linkedin.jpg" alt="Posts de Instagram/LinkedIn" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div>
+                <div class="img-slot"><img src="images/panel-wordpress.jpg" alt="Panel de WordPress" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="copies">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="stamp">portafolio de copy</span>
+      <h3>Muestras de copy</h3>
+    </div>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); margin-bottom:22px;">Copies de Instagram para Wichay Continental — distintos tonos y referencias. Haz clic para leer completo ↓</p>
+
+    <div class="cases-list">
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🐧</span>
+          <span class="case-mark">01</span>
+          <span>
+            <div class="case-tag">Storytelling motivacional</div>
+            <div class="case-title">Sé como el pingüino</div>
+            <div class="case-sub">A veces innovar se siente como caminar solo, sin mapa, sin certeza...</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <p class="copy-text">"A veces innovar se siente como esto: caminar solo, sin mapa, sin certeza. Pero cada gran idea empezó con alguien que se atrevió a salirse del grupo. 🐧 Sé como el pingüino. Ven a Wichay Continental y construye tu propio camino."</p>
+            </div>
+            <div class="case-block">
+              <div class="case-images"><div class="img-slot"><img src="images/post-pinguino.jpg" alt="Post del pingüino" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🔭</span>
+          <span class="case-mark">02</span>
+          <span>
+            <div class="case-tag">Humor peruano</div>
+            <div class="case-title">Chicharrón vs. NASA</div>
+            <div class="case-sub">Uno de los 18 desafíos del NASA Space Apps Challenge...</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <p class="copy-text">"Mientras Perú lucha por demostrar que el pan con chicharrón es el mejor desayuno latinoamericano, tú tienes la oportunidad de enfrentar uno de los 18 desafíos del NASA Space Apps Challenge. ¿Listo para crear soluciones que cambien el mundo? 🔭 ✨"</p>
+            </div>
+            <div class="case-block">
+              <div class="case-images"><div class="img-slot"><img src="images/post-nasa-space-apps.jpg" alt="Post NASA Space Apps" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🪄</span>
+          <span class="case-mark">03</span>
+          <span>
+            <div class="case-tag">Referencia pop</div>
+            <div class="case-title">Magia Harry Potter</div>
+            <div class="case-sub">Las historias con magia no mueren… y las ideas con innovación, tampoco...</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <p class="copy-text">"Las historias con magia no mueren… y las ideas con innovación, tampoco. ✨ En Wichay, tomamos esa idea que dejaste en pausa y la traemos de vuelta con un Accio… para hacerla brillar con un Lumos Maxima. ⚡"</p>
+            </div>
+            <div class="case-block">
+              <div class="case-images"><div class="img-slot"><img src="images/post-harry-potter.jpg" alt="Post Harry Potter" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🎉</span>
+          <span class="case-mark">04</span>
+          <span>
+            <div class="case-tag">Celebración de logros</div>
+            <div class="case-title">Racha ganadora: Scale+</div>
+            <div class="case-sub">Seis equipos ratificados en Startup Perú, capital semilla...</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <p class="copy-text">"💥 ¡Estamos en racha y no podríamos estar más emocionados! 🎉 Seis de nuestros equipos de Scale+ fueron ratificados en Startup Perú y recibirán capital semilla para seguir creciendo. Nos sentimos inmensamente orgullosos… ¡estamos casi hasta las lágrimas! 🥹"</p>
+            </div>
+            <div class="case-block">
+              <div class="case-images"><div class="img-slot"><img src="images/post-scale-startup-peru.jpg" alt="Post Scale+ / Startup Perú" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">📝</span>
+          <span class="case-mark">05</span>
+          <span>
+            <div class="case-tag">Redacción & edición de blog</div>
+            <div class="case-title">Blog del Club de Mentores</div>
+            <div class="case-sub">"La tentación del fracaso: ¿obstáculo o motor de crecimiento?"</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <h5>Contexto</h5>
+              <p>Además de redes, escribo y edito artículos para el Blog del Club de Mentores de Wichay Continental. En este, a partir de un texto de Luis Escobedo sobre Julio Ramón Ribeyro, llevamos la historia de un escritor que dudaba de sí mismo a una reflexión sobre la tentación de rendirse que también viven los emprendedores.</p>
+            </div>
+            <div class="case-block">
+              <h5>Copy de difusión</h5>
+              <p class="copy-text">"Un escritor que dudaba de sí mismo. Años sin reconocimiento. La sensación constante de no ser suficiente. Aun así, siguió escribiendo. ¿El fracaso es obstáculo… o motor de crecimiento?"</p>
+            </div>
+            <div class="case-block">
+              <div class="case-images"><div class="img-slot"><img src="images/portada-articulo.jpg" alt="Blog del Club de Mentores — La tentación del fracaso" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🏫</span>
+          <span class="case-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:14px;height:14px;"><polyline points="4 12 9 17 20 6"/></svg></span>
+          <span>
+            <div class="case-tag">Comunicación interna</div>
+            <div class="case-title">Universidad Continental (2018–2022)</div>
+            <div class="case-sub">Piezas sueltas: comunicados, campañas, boletín, reconocimientos...</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <p>Piezas sueltas de comunicación interna, mostrando variedad de formato y tono:</p>
+            </div>
+            <div class="case-block">
+              <div class="case-images" style="grid-template-columns:repeat(auto-fit, minmax(190px,1fr));">
+                <div class="img-slot"><img src="images/comunicados-generales.jpg" alt="Comunicados generales (charlas, campañas, eventos)" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div>
+                <div class="img-slot"><img src="images/comunicados-bienestar.jpg" alt="Comunicados de bienestar (seguros, salud mental)" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div>
+                <div class="img-slot"><img src="images/campanas-prevencion-covid19.jpg" alt="Campañas de prevención COVID-19" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="stamp">contenido en video</span>
+      <h3>TikTok & Reels</h3>
+    </div>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); margin-bottom:22px;">Videos verticales que creé y edité para Wichay Continental. Haz clic para ver el detalle ↓</p>
+
+    <div class="cases-list">
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🎵</span>
+          <span class="case-mark">03</span>
+          <span>
+            <div class="case-tag">Video vertical</div>
+            <div class="case-title">TikTok — Wichay Continental</div>
+            <div class="case-sub">Guion, grabación y edición de contenido corto para TikTok.</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <h5>Contexto</h5>
+              <p>Creación y edición de videos verticales para el TikTok de Wichay Continental (@wichay.pe): desde la idea y el guion hasta la grabación y el montaje final, pensados para enganchar en los primeros segundos y comunicar en formato corto.</p>
+            </div>
+            <div class="case-block">
+              <h5>Videos</h5>
+              <div class="case-images video-grid">
+                <a href="https://www.tiktok.com/@wichay.pe/video/7634623070371646740" target="_blank" rel="noopener" class="img-slot video-slot"><img src="images/tiktok-1.jpg" alt="TikTok 1" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div><div class="play-badge"></div></a>
+                <a href="https://www.tiktok.com/@wichay.pe/video/7601205633135709460" target="_blank" rel="noopener" class="img-slot video-slot"><img src="images/tiktok-2.jpg" alt="TikTok 2" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div><div class="play-badge"></div></a>
+                <a href="https://www.tiktok.com/@wichay.pe/video/7582749062731025684" target="_blank" rel="noopener" class="img-slot video-slot"><img src="images/tiktok-3.jpg" alt="TikTok 3" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div><div class="play-badge"></div></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">📸</span>
+          <span class="case-mark">03</span>
+          <span>
+            <div class="case-tag">Video vertical</div>
+            <div class="case-title">Instagram Reels — Wichay Continental</div>
+            <div class="case-sub">Guion, grabación y edición de contenido corto para Reels.</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <h5>Contexto</h5>
+              <p>El mismo trabajo de guion, grabación y edición, adaptado al formato Reels de Instagram para el mismo público de emprendedores e innovadores.</p>
+            </div>
+            <div class="case-block">
+              <h5>Videos</h5>
+              <div class="case-images video-grid">
+                <a href="https://www.instagram.com/reel/DcjlcapPKnp/" target="_blank" rel="noopener" class="img-slot video-slot"><img src="images/reel-1.jpg" alt="Reel 1" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div><div class="play-badge"></div></a>
+                <a href="https://www.instagram.com/reel/DbotL7zhMpt/" target="_blank" rel="noopener" class="img-slot video-slot"><img src="images/reel-2.jpg" alt="Reel 2" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div><div class="play-badge"></div></a>
+                <a href="https://www.instagram.com/reel/Da5wz-tJauU/" target="_blank" rel="noopener" class="img-slot video-slot"><img src="images/reel-3.jpg" alt="Reel 3" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg></div><div class="play-badge"></div></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="stamp">cronología</span>
+      <h3>Experiencia</h3>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2024 — Presente</div>
+      <div>
+        <div class="tl-role">Analista de Comunicaciones</div>
+        <div class="tl-org">Wichay Continental — hub de emprendimiento e innovación, Huancayo</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2023</div>
+      <div>
+        <div class="tl-role">Community Manager</div>
+        <div class="tl-org">Hay Derecho — Madrid, España</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2018 — 2022</div>
+      <div>
+        <div class="tl-role">Analista de Comunicaciones Internas</div>
+        <div class="tl-org">Universidad Continental</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="habilidades">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="stamp">herramientas del oficio</span>
+      <h3>Habilidades</h3>
+    </div>
+    <div class="skills-list">
+      <span class="skill-chip marked">storytelling y comunicación persuasiva</span>
+      <span class="skill-chip marked">estrategia de campaña</span>
+      <span class="skill-chip">comunicación interna y cultura organizacional</span>
+      <span class="skill-chip">copywriting y narrativa corporativa</span>
+      <span class="skill-chip">SEO / SEM</span>
+      <span class="skill-chip">email marketing (emBlue, Mailchimp)</span>
+      <span class="skill-chip">IA generativa (ChatGPT, Claude, Copilot)</span>
+      <span class="skill-chip">Adobe Illustrator & Photoshop</span>
+      <span class="skill-chip">Canva · Notion · PowerPoint avanzado</span>
+      <span class="skill-chip">gestión de eventos</span>
+      <span class="skill-chip">análisis de indicadores de campaña</span>
+    </div>
+  </div>
+</section>
+
+<section id="educacion">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="stamp">estudios</span>
+      <h3>Educación</h3>
+    </div>
+    <div class="edu-item">
+      <h4>Máster en Comunicación de las Organizaciones</h4>
+      <p>Universidad Complutense de Madrid — 2022–2023</p>
+    </div>
+    <div class="edu-item">
+      <h4>Licenciatura en Ciencias y Tecnologías de la Comunicación</h4>
+      <p>Universidad Continental — 2012–2018</p>
+    </div>
+  </div>
+</section>
+
+<section id="certificados">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="stamp">formación continua</span>
+      <h3>Certificados</h3>
+    </div>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); margin-bottom:22px;">Más de 30 certificaciones, agrupadas por área. Haz clic para ver el detalle ↓</p>
+
+    <div class="cases-list">
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">✍️</span>
+          <span class="case-mark">10</span>
+          <span>
+            <div class="case-tag">Formación continua</div>
+            <div class="case-title">Storytelling & Copywriting</div>
+            <div class="case-sub">Crehana, USMP, Santander Open Academy, Fundación Telefónica y más.</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <ul class="cert-list" style="columns:2 220px;">
+                <li><strong>Storytelling avanzado para negocios</strong> — Crehana, 2025</li>
+                <li><strong>Marketing de Contenidos y Storytelling</strong> — USMP, 2025</li>
+                <li><strong>Storytelling: el arte de contar historias</strong> — Crehana, 2025</li>
+                <li><strong>Storytelling en el Marketing Digital</strong> — Santander Open Academy, 2024</li>
+                <li><strong>Storytelling</strong> — Fundación Telefónica, 2023</li>
+                <li><strong>Copywriting</strong> — Coderhouse, 2025</li>
+                <li><strong>Copywriting en redes sociales</strong> — Crehana, 2024</li>
+                <li><strong>Copywriting para newsletters</strong> — LinkedIn, 2024</li>
+                <li><strong>Redacción Corporativa</strong> — Fundación Telefónica, 2023</li>
+                <li><strong>Taller de redacción para la escritura creativa</strong> — Ministerio de Cultura del Perú, 2025</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">📱</span>
+          <span class="case-mark">6</span>
+          <span>
+            <div class="case-tag">Formación continua</div>
+            <div class="case-title">Comunicación digital & redes</div>
+            <div class="case-sub">Coderhouse, Platzi, IT School.</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <ul class="cert-list" style="columns:2 220px;">
+                <li><strong>Community Manager & Publicidad Flex</strong> — Coderhouse, 2026</li>
+                <li><strong>Contenido para Redes Sociales</strong> — Coderhouse, 2025</li>
+                <li><strong>Community Manager</strong> — Platzi, 2025</li>
+                <li><strong>Community Manager</strong> — IT School, 2025</li>
+                <li><strong>Fundamentos de SEO</strong> — Platzi, 2025</li>
+                <li><strong>Creación de videos para redes sociales</strong> — Crehana, 2024</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🗂️</span>
+          <span class="case-mark">6</span>
+          <span>
+            <div class="case-tag">Formación continua</div>
+            <div class="case-title">Comunicación interna & organizacional</div>
+            <div class="case-sub">LinkedIn Learning, UBA, UBITS y más.</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <ul class="cert-list" style="columns:2 220px;">
+                <li><strong>Cómo gestionar la comunicación de crisis</strong> — LinkedIn, 2024</li>
+                <li><strong>Cómo crear una cultura del cambio</strong> — LinkedIn, 2024</li>
+                <li><strong>Métricas e Indicadores de Comunicación Interna</strong> — Internal CI, 2023</li>
+                <li><strong>Indicadores Estratégicos de Comunicación</strong> — Escuela de Comunicación e Imagen, 2024</li>
+                <li><strong>Las comunicaciones internas</strong> — Universidad de Buenos Aires, 2022</li>
+                <li><strong>Fundamentos de la redacción corporativa</strong> — UBITS, 2022</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🤖</span>
+          <span class="case-mark">2</span>
+          <span>
+            <div class="case-tag">Formación continua</div>
+            <div class="case-title">Inteligencia artificial</div>
+            <div class="case-sub">Santander Open Academy, Crehana.</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <ul class="cert-list" style="columns:2 220px;">
+                <li><strong>Google: Inteligencia Artificial y productividad</strong> — Santander Open Academy, 2025</li>
+                <li><strong>Creación fácil de imágenes con IA</strong> — Crehana, 2024</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🌈</span>
+          <span class="case-mark">5</span>
+          <span>
+            <div class="case-tag">Formación continua</div>
+            <div class="case-title">Inclusión & comunicación con propósito</div>
+            <div class="case-sub">UCM, GNmas Latam, SOOM Metrix, Amnesty International.</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <ul class="cert-list" style="columns:2 220px;">
+                <li><strong>Comunicar con lenguaje inclusivo</strong> — Univ. Complutense de Madrid, 2022</li>
+                <li><strong>Comunicación con empatía de género / UX Writing para HR</strong> — GNmas Latam, 2022</li>
+                <li><strong>Inclusión de personas con discapacidad</strong> (2 módulos) — SOOM Metrix, 2022</li>
+                <li><strong>Diversxs: derechos LGTBIQ+</strong> — Amnesty International, 2022</li>
+                <li><strong>Combatir la violencia de género en internet</strong> — Amnesty International, 2023</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🎓</span>
+          <span class="case-mark">4</span>
+          <span>
+            <div class="case-tag">Formación continua</div>
+            <div class="case-title">Diplomados</div>
+            <div class="case-sub">Cámara de Comercio de Lima.</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <ul class="cert-list" style="columns:2 220px;">
+                <li><strong>Relaciones Públicas y Comunicación Corporativa</strong> — Cámara de Comercio de Lima, 2017</li>
+                <li><strong>Marketing Estratégico</strong> — Cámara de Comercio de Lima, 2018</li>
+                <li><strong>Periodismo y Comunicación Multimedia</strong> — Cámara de Comercio de Lima, 2018</li>
+                <li><strong>Relaciones Comunitarias y Responsabilidad Social</strong> — Cámara de Comercio de Lima, 2018</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🎨</span>
+          <span class="case-mark">3</span>
+          <span>
+            <div class="case-tag">Formación continua</div>
+            <div class="case-title">Diseño & liderazgo de eventos</div>
+            <div class="case-sub">Continua UC, NASA.</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <ul class="cert-list" style="columns:2 220px;">
+                <li><strong>Certificado como Diseñadora Gráfica</strong> — Continua UC, 2014</li>
+                <li><strong>Certificado como Diseñadora Web</strong> — Continua UC, 2014</li>
+                <li><strong>Galactic Local Coordinator</strong> — NASA, 2024</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="contact-box">
+      <h3>Conversemos</h3>
+      <p>Disponible para nuevas oportunidades en comunicación corporativa, contenido y employer branding.</p>
+      <div class="contact-links">
+        <a href="mailto:chrisjussy@gmail.com">chrisjussy@gmail.com</a>
+        <a href="tel:+51921303347">921 303 347</a>
+        <a href="https://www.linkedin.com/in/christai-jaime-avila/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Christai Jaime Avila — Portafolio profesional
+</footer>
+
+<script>
+  document.querySelectorAll('.case-trigger').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.case-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.case-item.open').forEach(function(openItem){
+        if(openItem !== item){
+          openItem.classList.remove('open');
+          openItem.querySelector('.case-trigger').setAttribute('aria-expanded','false');
+        }
+      });
+      item.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      if(!isOpen){
+        setTimeout(function(){
+          item.scrollIntoView({behavior:'smooth', block:'start'});
+        }, 80);
+      }
+    });
+  });
+</script>
+
+<button id="backToTop" type="button" aria-label="Volver arriba">↑</button>
+
+<script>
+  (function(){
+    // sticky header shadow on scroll
+    var header = document.querySelector('header.masthead');
+    var backToTop = document.getElementById('backToTop');
+    function onScroll(){
+      header.classList.toggle('scrolled', window.scrollY > 12);
+      backToTop.classList.toggle('show', window.scrollY > 500);
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+
+    // back to top
+    backToTop.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+
+    // scrollspy nav
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav.masthead-nav a'));
+    var sections = navLinks.map(function(link){
+      return document.querySelector(link.getAttribute('href'));
+    }).filter(Boolean);
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var link = navLinks[sections.indexOf(entry.target)];
+        if(!link) return;
+        if(entry.isIntersecting){
+          navLinks.forEach(function(l){ l.classList.remove('active'); });
+          link.classList.add('active');
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+    sections.forEach(function(s){ spy.observe(s); });
+
+    // fade-in sections on scroll
+    document.querySelectorAll('section').forEach(function(s){ s.classList.add('fade-section'); });
+    var reveal = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          reveal.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.08, rootMargin:'0px 0px -60px 0px'});
+    document.querySelectorAll('.fade-section').forEach(function(s){ reveal.observe(s); });
+  })();
+</script>
+
+<div id="lightbox">
+  <button id="lightbox-close" type="button" aria-label="Cerrar">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  (function(){
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    var closeBtn = document.getElementById('lightbox-close');
+
+    function openLightbox(src, alt){
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      lightbox.classList.add('open');
+    }
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      lightboxImg.src = '';
+    }
+
+    document.querySelectorAll('.img-slot:not(.video-slot) img').forEach(function(img){
+      img.addEventListener('click', function(){
+        // only open if the image actually loaded (not showing the fallback)
+        if(img.style.display === 'none') return;
+        openLightbox(img.currentSrc || img.src, img.alt);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(e){
+      if(e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeLightbox();
+    });
+  })();
+</script>
+
+</body>
+</html>
