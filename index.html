@@ -317,6 +317,22 @@
     margin-right:16px;
   }
   .case-images{ display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:14px; margin-top:6px; }
+  .video-grid{ grid-template-columns:repeat(auto-fit, minmax(120px,140px)); justify-content:start; }
+  .video-slot{ aspect-ratio:9/16 !important; max-width:140px; display:block; text-decoration:none; }
+  .play-badge{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    pointer-events:none;
+  }
+  .play-badge::before{
+    content:'';
+    width:0; height:0;
+    margin-left:3px;
+    border-style:solid;
+    border-width:9px 0 9px 15px;
+    border-color:transparent transparent transparent #fff;
+    filter:drop-shadow(0 1px 3px rgba(0,0,0,0.45));
+  }
 
   /* ---------- certificates ---------- */
   .cert-group{ margin-bottom:26px; }
@@ -481,6 +497,7 @@
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#casos">Casos</a>
       <a href="#copies">Copies</a>
+      <a href="#videos">TikTok & Reels</a>
       <a href="#experiencia">Experiencia</a>
       <a href="#habilidades">Habilidades</a>
       <a href="#educacion">Educación</a>
@@ -507,8 +524,8 @@
       </div>
     </div>
     <div class="hero-photo img-slot">
-      <img src="foto-perfil.png" alt="Christai Jaime Avila" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      <img src="images/foto-perfil.jpg" alt="Christai Jaime Avila" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg><span>Foto de perfil</span></div>
     </div>
   </div>
 </section>
@@ -556,8 +573,8 @@
             <div class="case-block">
               <h5>Imágenes</h5>
               <div class="case-images">
-                <div class="img-slot"><img src="images/facilitadora-clase.jpg" alt="En clase / dinámica grupal" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>En clase / dinámica grupal</span></div></div>
-                <div class="img-slot"><img src="images/facilitadora-material.jpg" alt="Material del curso" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Material del curso</span></div></div>
+                <div class="img-slot"><img src="images/En clase - dinámica grupal.jpg" alt="En clase / dinámica grupal" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>En clase / dinámica grupal</span></div></div>
+                <div class="img-slot"><img src="images/Material del curso.jpg" alt="Material del curso" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Material del curso</span></div></div>
               </div>
             </div>
           </div>
@@ -599,8 +616,8 @@
             <div class="case-block">
               <h5>Imágenes</h5>
               <div class="case-images">
-                <div class="img-slot"><img src="images/nasa-sede-ica.jpg" alt="Sede Ica — evento 2025" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Sede Ica — evento 2025</span></div></div>
-                <div class="img-slot"><img src="images/nasa-deck.jpg" alt="Deck de campaña" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Deck de campaña</span></div></div>
+                <div class="img-slot"><img src="images/Sede Ica - evento 2025.JPG" alt="Sede Ica — evento 2025" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Sede Ica — evento 2025</span></div></div>
+                <div class="img-slot"><img src="images/Deck de campaña.jpg" alt="Deck de campaña" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Deck de campaña</span></div></div>
               </div>
             </div>
           </div>
@@ -643,8 +660,8 @@
             <div class="case-block">
               <h5>Imágenes</h5>
               <div class="case-images">
-                <div class="img-slot"><img src="images/emprendimiento-mockup-feed.jpg" alt="Mockup del feed" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Mockup del feed</span></div></div>
-                <div class="img-slot"><img src="images/emprendimiento-calendario.jpg" alt="Calendario de campaña" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Calendario de campaña</span></div></div>
+                <div class="img-slot"><img src="images/mockup del feed.jpg" alt="Mockup del feed" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Mockup del feed</span></div></div>
+                <div class="img-slot"><img src="images/Calendario de campaña.jpg" alt="Calendario de campaña" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Calendario de campaña</span></div></div>
               </div>
             </div>
           </div>
@@ -679,7 +696,7 @@
             <div class="case-block">
               <h5>Imágenes</h5>
               <div class="case-images">
-                <div class="img-slot"><img src="images/gptw-piezas.jpg" alt="Piezas de campaña interna" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Piezas de campaña interna</span></div></div>
+                <div class="img-slot"><img src="images/Piezas de campaña interna.jpeg" alt="Piezas de campaña interna" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Piezas de campaña interna</span></div></div>
               </div>
             </div>
           </div>
@@ -718,8 +735,8 @@
             <div class="case-block">
               <h5>Imágenes</h5>
               <div class="case-images">
-                <div class="img-slot"><img src="images/hayderecho-posts.jpg" alt="Posts de Instagram/LinkedIn" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Posts de Instagram/LinkedIn</span></div></div>
-                <div class="img-slot"><img src="images/hayderecho-wordpress.jpg" alt="Panel de WordPress" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Panel de WordPress</span></div></div>
+                <div class="img-slot"><img src="images/Post de Instagram - LinkedIn.jpg" alt="Posts de Instagram/LinkedIn" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Posts de Instagram/LinkedIn</span></div></div>
+                <div class="img-slot"><img src="images/Panel de WordPress.jpg" alt="Panel de WordPress" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Panel de WordPress</span></div></div>
               </div>
             </div>
           </div>
@@ -756,7 +773,7 @@
               <p class="copy-text">"A veces innovar se siente como esto: caminar solo, sin mapa, sin certeza. Pero cada gran idea empezó con alguien que se atrevió a salirse del grupo. 🐧 Sé como el pingüino. Ven a Wichay Continental y construye tu propio camino."</p>
             </div>
             <div class="case-block">
-              <div class="case-images"><div class="img-slot"><img src="images/copy-01-pinguino.jpg" alt="Post del pingüino" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Post del pingüino</span></div></div></div>
+              <div class="case-images"><div class="img-slot"><img src="images/Post del pinguino.jpg" alt="Post del pingüino" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Post del pingüino</span></div></div></div>
             </div>
           </div>
         </div>
@@ -779,7 +796,7 @@
               <p class="copy-text">"Mientras Perú lucha por demostrar que el pan con chicharrón es el mejor desayuno latinoamericano, tú tienes la oportunidad de enfrentar uno de los 18 desafíos del NASA Space Apps Challenge. ¿Listo para crear soluciones que cambien el mundo? 🔭 ✨"</p>
             </div>
             <div class="case-block">
-              <div class="case-images"><div class="img-slot"><img src="images/copy-02-nasa.jpg" alt="Post NASA Space Apps" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Post NASA Space Apps</span></div></div></div>
+              <div class="case-images"><div class="img-slot"><img src="images/Post NASA Space Apps.jpg" alt="Post NASA Space Apps" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Post NASA Space Apps</span></div></div></div>
             </div>
           </div>
         </div>
@@ -802,7 +819,7 @@
               <p class="copy-text">"Las historias con magia no mueren… y las ideas con innovación, tampoco. ✨ En Wichay, tomamos esa idea que dejaste en pausa y la traemos de vuelta con un Accio… para hacerla brillar con un Lumos Maxima. ⚡"</p>
             </div>
             <div class="case-block">
-              <div class="case-images"><div class="img-slot"><img src="images/copy-03-harrypotter.jpg" alt="Post Harry Potter" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Post Harry Potter</span></div></div></div>
+              <div class="case-images"><div class="img-slot"><img src="images/Post Harry Potter.jpg" alt="Post Harry Potter" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Post Harry Potter</span></div></div></div>
             </div>
           </div>
         </div>
@@ -825,7 +842,7 @@
               <p class="copy-text">"💥 ¡Estamos en racha y no podríamos estar más emocionados! 🎉 Seis de nuestros equipos de Scale+ fueron ratificados en Startup Perú y recibirán capital semilla para seguir creciendo. Nos sentimos inmensamente orgullosos… ¡estamos casi hasta las lágrimas! 🥹"</p>
             </div>
             <div class="case-block">
-              <div class="case-images"><div class="img-slot"><img src="images/copy-04-scale.jpg" alt="Post Scale+ / Startup Perú" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Post Scale+ / Startup Perú</span></div></div></div>
+              <div class="case-images"><div class="img-slot"><img src="images/Post Scale+ - Startup Perú.jpg" alt="Post Scale+ / Startup Perú" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Post Scale+ / Startup Perú</span></div></div></div>
             </div>
           </div>
         </div>
@@ -833,22 +850,27 @@
 
       <div class="case-item">
         <button class="case-trigger has-thumb" aria-expanded="false">
-          <span class="case-emoji">❄️</span>
+          <span class="case-emoji">📝</span>
           <span class="case-mark">05</span>
           <span>
-            <div class="case-tag">Trend viral</div>
-            <div class="case-title">Ice, fríos, kietos — Explorer</div>
-            <div class="case-sub">Se ampliaron las inscripciones para Explorer...</div>
+            <div class="case-tag">Redacción & edición de blog</div>
+            <div class="case-title">Blog del Club de Mentores</div>
+            <div class="case-sub">"La tentación del fracaso: ¿obstáculo o motor de crecimiento?"</div>
           </span>
           <span class="case-toggle">+</span>
         </button>
         <div class="case-panel">
           <div class="case-panel-inner">
             <div class="case-block">
-              <p class="copy-text">"❄️ Nos quedamos ice, fríos, kietos, taki taki rumba… y EMOCIONADOS porque se ampliaron las inscripciones para Explorer. Es tu oportunidad para validar tu idea de negocio y encender tu lado emprendedor. 🚀"</p>
+              <h5>Contexto</h5>
+              <p>Además de redes, escribo y edito artículos para el Blog del Club de Mentores de Wichay Continental. En este, a partir de un texto de Luis Escobedo sobre Julio Ramón Ribeyro, llevamos la historia de un escritor que dudaba de sí mismo a una reflexión sobre la tentación de rendirse que también viven los emprendedores.</p>
             </div>
             <div class="case-block">
-              <div class="case-images"><div class="img-slot"><img src="images/copy-05-explorer.jpg" alt="Post Explorer inscripciones" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Post Explorer inscripciones</span></div></div></div>
+              <h5>Copy de difusión</h5>
+              <p class="copy-text">"Un escritor que dudaba de sí mismo. Años sin reconocimiento. La sensación constante de no ser suficiente. Aun así, siguió escribiendo. ¿El fracaso es obstáculo… o motor de crecimiento?"</p>
+            </div>
+            <div class="case-block">
+              <div class="case-images"><div class="img-slot"><img src="images/Portada del artículo.jpg" alt="Blog del Club de Mentores — La tentación del fracaso" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Portada del artículo</span></div></div></div>
             </div>
           </div>
         </div>
@@ -872,15 +894,87 @@
             </div>
             <div class="case-block">
               <div class="case-images" style="grid-template-columns:repeat(auto-fit, minmax(190px,1fr));">
-                <div class="img-slot"><img src="images/ic-comunicados-generales.jpg" alt="Comunicados generales (charlas, campañas, eventos)" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Comunicados generales (charlas, campañas, eventos)</span></div></div>
-                <div class="img-slot"><img src="images/ic-bienestar.jpg" alt="Comunicados de bienestar (seguros, salud mental)" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Comunicados de bienestar (seguros, salud mental)</span></div></div>
+                <div class="img-slot"><img src="images/Comunicados generales (charlas, campañas, eventos).jpg" alt="Comunicados generales (charlas, campañas, eventos)" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Comunicados generales (charlas, campañas, eventos)</span></div></div>
+                <div class="img-slot"><img src="images/Comunidados de bienestar (seguros, salud mental).jpg" alt="Comunicados de bienestar (seguros, salud mental)" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Comunicados de bienestar (seguros, salud mental)</span></div></div>
                 <div class="img-slot"><img src="images/ic-concursos.jpg" alt="Concursos internos (Qatar 2022, día de la amistad)" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Concursos internos (Qatar 2022, día de la amistad)</span></div></div>
-                <div class="img-slot"><img src="images/ic-covid.jpg" alt="Campañas de prevención COVID-19" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Campañas de prevención COVID-19</span></div></div>
+                <div class="img-slot"><img src="images/Campañas de prevención COVID-19.jpg" alt="Campañas de prevención COVID-19" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Campañas de prevención COVID-19</span></div></div>
                 <div class="img-slot"><img src="images/ic-politicas.jpg" alt="Políticas institucionales" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Políticas institucionales</span></div></div>
                 <div class="img-slot"><img src="images/ic-boletin.jpg" alt="Boletín institucional semanal" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Boletín institucional semanal</span></div></div>
                 <div class="img-slot"><img src="images/ic-campanas-sociales.jpg" alt="Campañas sociales (donación de sangre)" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Campañas sociales (donación de sangre)</span></div></div>
                 <div class="img-slot"><img src="images/ic-reconocimientos.jpg" alt="Reconocimiento e historias de éxito del equipo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Reconocimiento e historias de éxito del equipo</span></div></div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="stamp">contenido en video</span>
+      <h3>TikTok & Reels</h3>
+    </div>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); margin-bottom:22px;">Videos verticales que creé y edité para Wichay Continental. Haz clic para ver el detalle ↓</p>
+
+    <div class="cases-list">
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">🎵</span>
+          <span class="case-mark">03</span>
+          <span>
+            <div class="case-tag">Video vertical</div>
+            <div class="case-title">TikTok — Wichay Continental</div>
+            <div class="case-sub">Guion, grabación y edición de contenido corto para TikTok.</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <h5>Contexto</h5>
+              <p>Creación y edición de videos verticales para el TikTok de Wichay Continental (@wichay.pe): desde la idea y el guion hasta la grabación y el montaje final, pensados para enganchar en los primeros segundos y comunicar en formato corto.</p>
+            </div>
+            <div class="case-block">
+              <h5>Videos</h5>
+              <div class="case-images video-grid">
+                <a href="https://www.tiktok.com/@wichay.pe/video/7634623070371646740" target="_blank" rel="noopener" class="img-slot video-slot"><img src="images/Video 1.jpg" alt="TikTok 1" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Video 1</span></div><div class="play-badge"></div></a>
+                <a href="https://www.tiktok.com/@wichay.pe/video/7601205633135709460" target="_blank" rel="noopener" class="img-slot video-slot"><img src="images/Video 2.jpg" alt="TikTok 2" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Video 2</span></div><div class="play-badge"></div></a>
+                <a href="https://www.tiktok.com/@wichay.pe/video/7582749062731025684" target="_blank" rel="noopener" class="img-slot video-slot"><img src="images/Video 3.jpg" alt="TikTok 3" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Video 3</span></div><div class="play-badge"></div></a>
+              </div>
+              <p style="margin-top:14px; font-size:13px; color:var(--ink-soft);">Cada portada abre el video real de TikTok en una pestaña nueva.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-item">
+        <button class="case-trigger has-thumb" aria-expanded="false">
+          <span class="case-emoji">📸</span>
+          <span class="case-mark">03</span>
+          <span>
+            <div class="case-tag">Video vertical</div>
+            <div class="case-title">Instagram Reels — Wichay Continental</div>
+            <div class="case-sub">Guion, grabación y edición de contenido corto para Reels.</div>
+          </span>
+          <span class="case-toggle">+</span>
+        </button>
+        <div class="case-panel">
+          <div class="case-panel-inner">
+            <div class="case-block">
+              <h5>Contexto</h5>
+              <p>El mismo trabajo de guion, grabación y edición, adaptado al formato Reels de Instagram para el mismo público de emprendedores e innovadores.</p>
+            </div>
+            <div class="case-block">
+              <h5>Videos</h5>
+              <div class="case-images video-grid">
+                <a href="https://www.instagram.com/reel/DcjlcapPKnp/" target="_blank" rel="noopener" class="img-slot video-slot"><img src="images/Reel 1.jpg" alt="Reel 1" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Reel 1</span></div><div class="play-badge"></div></a>
+                <a href="https://www.instagram.com/reel/DbotL7zhMpt/" target="_blank" rel="noopener" class="img-slot video-slot"><img src="images/Reel 2.jpg" alt="Reel 2" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Reel 2</span></div><div class="play-badge"></div></a>
+                <a href="https://www.instagram.com/reel/Da5wz-tJauU/" target="_blank" rel="noopener" class="img-slot video-slot"><img src="images/Reel 3.jpg" alt="Reel 3" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="img-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-9 9"/></svg><span>Reel 3</span></div><div class="play-badge"></div></a>
+              </div>
+              <p style="margin-top:14px; font-size:13px; color:var(--ink-soft);">Cada portada abre el Reel real de Instagram en una pestaña nueva.</p>
             </div>
           </div>
         </div>
